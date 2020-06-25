@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Sorting Algorithm Visualiser</title>
+		<meta charset="utfc8">	
+		<link rel="stylesheet" href="sorting-vis.css">		
+	</head>
+
+	<body>
+		<div id="entire-page">
+			<header>
+					<nav>
+						<ul id="menu">	
+							<button id="shuffle" class="menu-button">Shuffle</button>
+							<button id="step-array" class="menu-button">Step Array</button>
+							<button id="rand-array" class="menu-button">Random Array</button>							
+							
+							<span class="menu-text">Change Speed</span>
+							<input type="range" min="1" max="100" value="50" id="speed-toggle">
+						
+							<button class="menu-button select-algo">Insertion Sort</button>
+							<button class="menu-button select-algo">Selection Sort</button>
+							<button class="menu-button select-algo">Quick Sort</button>							
+							<button class="menu-button select-algo">Heap Sort</button>	
+
+							<button id="run" class="menu-button">Run</button>							
+						</ul>
+					</nav>
+			</header>
+
+			<div id="bar-container">
+						
+			</div>
+		</div>
+	</body>
+
+	<script src="sorting-vis.js"></script>
+</html>
