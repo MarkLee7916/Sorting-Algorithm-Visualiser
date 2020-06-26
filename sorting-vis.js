@@ -5,8 +5,8 @@ const MIN_ARRAY_LENGTH = 20;
 const MAX_ARRAY_LENGTH = 100;
 
 const global = {
-    length : -1,
-    speed : 10,
+	length : -1,
+	speed : 10,
 	currentAlgorithm: undefined
 }
 
@@ -237,7 +237,7 @@ function indexOfMinElement(indexLimit) {
 
 // Wrapper for quickSortBody() to abstract out the initial parameters
 async function quickSort() {
-	quickSortBody(0, global.length - 1);
+	await quickSortBody(0, global.length - 1);
 }
 
 async function quickSortBody(lower, upper) {
