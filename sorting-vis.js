@@ -1,12 +1,12 @@
-"use strict"
+"use strict";
 
 const array = [];
 const MIN_ARRAY_LENGTH = 20;
 const MAX_ARRAY_LENGTH = 100;
 
 const global = {
-	length : -1,
-	speed : 10,
+    length : -1,
+    speed : 10,
 	currentAlgorithm: undefined
 }
 
@@ -24,6 +24,8 @@ addEventListeners();
 async function run() {
 	if (isSorted())
 		alert("Array already sorted!");
+	else if (global.currentAlgorithm === undefined)
+		alert("No algorithm selected!");
 	else {
 		removeEventListenersToStopInterrupts();
 		await global.currentAlgorithm();			
@@ -170,7 +172,7 @@ function resetAlgoButtonColorsToDefault() {
 function updateSpeed(clickable) {
 	const slider = clickable.target;
 
-	global.speed = slider.value;
+	global.speed = parseInt(slider.value);
 }
 
 function createVisualBarsFromArray() {	
@@ -298,7 +300,7 @@ async function heapify(root, cutoff) {
 }
 
 // Swap items at the given indexes
-async function swap(i, j) {
+function swap(i, j) {
 	return new Promise((resolve) => {	
 		const temp = array[i];
 		array[i] = array[j];
