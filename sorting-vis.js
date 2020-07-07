@@ -27,10 +27,14 @@ async function run() {
 	else if (global.currentAlgorithm === undefined)
 		alert("No algorithm selected!");
 	else {
-		removeEventListenersToStopInterrupts();
-		await global.currentAlgorithm();			
-		addEventListeners();
+		runWithoutInterrupts(global.currentAlgorithm);
 	}
+}
+
+function runWithoutInterrupts(func) {
+	removeEventListenersToStopInterrupts();
+
+    func().then(addEventListeners);
 }
 
 // Helper function for run()
@@ -322,12 +326,10 @@ function renderSwapInView(i, j) {
 }
 
 async function shuffle() {
-	removeEventListenersToStopInterrupts();	
-
-	for (let i = 0; i < global.length; i++) 
-		await swap(i, rng(0, global.length));
-
-	addEventListeners();
+	runWithoutInterrupts(async () => {
+		for (let i = 0; i < global.length; i++) 
+			await swap(i, rng(0, global.length))
+	});
 }
 
 // Generates a random number whose value lies between lower and upper
